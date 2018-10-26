@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">1MWTT AR/VR Quiz App</string>
+
+    <!--Intro Text strings-->
+    <string name="thankyouMara">One Million Women to Tech would like to thank Mara Catalina for two weeks of expert hands-on virtual reality and augmented reality training.</string>
+    <string name="instructions">Scroll through the course screenshots and test your knowledge of AR and VR by answering the questions below.</string>
+    <string name="invitation">Then come join the fun at:</string>
+    <string name="ghrepo_url">https://github.com/1millionwomentotech/toolkitten/tree/master/summer-of-code</string>
+
+    <!--Image 1: Topic List for weeks 1 and 11 -->
+    <string name="w10_11_topics">Summer of Code Weeks 10 and 11 Topics</string>
+
+    <!--Question 1: Question text -->
+    <string name="question1">Q1. Which of the following have VR applications? (Select all that apply):</string>
+
+
+
+
+
+
+
+
+
+
+    <!--Question1 Checkbox Answer strings: (all of them are true)-->
+    <string name="q1_ckbox1">Architecture</string>
+    <string name="q1_ckbox2">Hospitality</string>
+    <string name="q1_ckbox3">Sports</string>
+    <string name="q1_ckbox4">Arts</string>
+    <string name="q1_ckbox5">Teaching</string>
+    <string name="q1_ckbox6">Medicine</string>
+
+    <!--Image Descriptions-->
+    <string name="vr1">Image of objects created during the classes using virtual reality.</string>
+    <string name="logo">One Million Women to Tech logo</string>
+
+    <!--Question2 and Radio Answer strings (Correct Answer is: One main Camera)-->
+    <string name="question2">Q2. According to best practice, how many cameras should be used for AR/VR experiences?</string>
+    <string name="q2_radio_one">One main Camera</string>
+    <string name="q2_radio_two">Two main cameras</string>
+    <string name="q2_radio_more">More than 2 cameras</string>
+
+    <!--Question3 and Radio Answer strings (Correct Answer is: true)-->
+    <string name="question3">Q3. Cloud targets are targets that exist on your account database rather than on the device? (True/False) </string>
+
+    <string name="q3_true">True</string>
+    <string name="q3_false">False</string>
+
+    <!--Question4 User Input: Correct Answer is: OnTriggerEnter-->
+    <string name="question4">Q4. ______________ is called when the other Collider enters the trigger.</string>
+
+
+
+
+
+
+
+
+</resources>
