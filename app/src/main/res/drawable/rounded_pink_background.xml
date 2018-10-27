@@ -5,10 +5,10 @@
         android:width="4dp"
         android:color="#de3d3d" />
 
-    // the inside color
+    <!-- the inside color -->
     <solid
         android:color="#ee3897" />
-
+<!--Change radius to create rounded corners -->
     <corners android:radius="0dp" />
 
     <padding
