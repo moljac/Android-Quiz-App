@@ -288,7 +288,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:onClick="grade_question_2"
+            android:onClick="gradeQuestion2"
             android:padding="10dp"
             android:text="@string/grade_question_2"
             android:textColor="@color/colorPrimaryDark"
@@ -372,7 +372,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:onClick="grade_question_3"
+            android:onClick="gradeQuestion3"
             android:padding="10dp"
             android:text="@string/grade_question_3"
             android:textColor="@color/colorPrimaryDark"
@@ -490,16 +490,15 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="#690039" />
+
 <!-- Button to submit Question 4 answer AND send toast with final score message -->
-
-
         <Button
             android:id="@+id/button_grade_quiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:onClick="grade_quiz"
+            android:onClick="gradeQuiz"
             android:padding="10dp"
             android:text="@string/grade_question_4"
             android:textColor="@color/colorPrimaryDark"
@@ -543,6 +542,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="16dp"
                     android:text="@string/q1_results"
                     android:textAppearance="?android:textAppearanceMedium" />
 
@@ -550,7 +550,8 @@
                     android:id="@+id/q1_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:padding="16dp"
+                    android:text="scoreQ1"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@android:color/black"/>
             </TableRow>
@@ -565,6 +566,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="16dp"
                     android:text="@string/q2_results"
                     android:textAppearance="?android:textAppearanceMedium" />
 
@@ -572,7 +574,8 @@
                     android:id="@+id/q2_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:padding="16dp"
+                    android:text="scoreQ2"
                     android:textAppearance="?android:textAppearanceMedium" />
             </TableRow>
 <!--Question 3 Results:-->
@@ -587,23 +590,72 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/q1_ckbox5"
+                    android:padding="16dp"
+                    android:text="@string/q3_results"
                     android:textAppearance="?android:textAppearanceMedium" />
 
                 <TextView
                     android:id="@+id/q3_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/q1_ckbox6"
+                    android:padding="16dp"
+                    android:text="scoreQ3"
                     android:textAppearance="?android:textAppearanceMedium" />
             </TableRow>
+<!--Question 4 results -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="@string/q4_results"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/q4_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="scoreQ4"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"/>
+            </TableRow>
+<!--Quiz Total results -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="@string/final_score"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/final_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="scoreFinal"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"/>
+            </TableRow>
+
+ <!--Intent button with CTA to send us feedback -->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -612,7 +664,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_span="2"
-                    android:onClick="email_us_feedback"
+                    android:onClick="emailFeedback"
                     android:padding="10dp"
                     android:text="@string/feedback"
                     android:textColor="@color/colorPrimaryDark"
