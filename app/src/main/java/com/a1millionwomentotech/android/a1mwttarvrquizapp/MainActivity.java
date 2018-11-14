@@ -3,11 +3,12 @@ package com.onemillionwomentotech.android.omwttarvrquizapp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.onemillionwomentotech.android.omwttarvrquizapp.R;
 
 /**
  * This quiz app demos AR and VR creations made during weeks 10 and 11 of
@@ -22,10 +23,15 @@ public class MainActivity extends AppCompatActivity {
     int scoreQ4 = 0;
     int finalScore = 0;
 
+    private RadioGroup radioQ2Group;
+    private RadioButton bOneCamera, bTwoCameras, bMoreCameras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addListenerOnButton();
     }
 
     /**
@@ -92,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
      * @return gradeQ1
      */
 
-         public int scoreQuestion1(boolean Architecture, boolean Hospitality,
-         boolean Sports, boolean Arts, boolean Teaching, boolean Medicine) {
+     public int scoreQuestion1(boolean Architecture, boolean Hospitality,
+     boolean Sports, boolean Arts, boolean Teaching, boolean Medicine) {
 
          int gradeQ1 = 0;
 
@@ -116,63 +122,97 @@ public class MainActivity extends AppCompatActivity {
             gradeQ1 = gradeQ1 + 18;
          }
          return gradeQ1;
-         }
+     }
 
 
      /*
-      * * * TO DO: Create gradeQuestion2 method
-       * @return scroreQ2
-         * This method checks quiz question 2 radio buttons and
-         * displays the result into android:id="@+id/q2_score
-         * along with a toast message.
-         */
-        public void gradeQuestion2 (View view) {
-            
-        }
+      * This method checks quiz question 2 radio buttons and
+      * displays the result into android:id="@+id/q2_score
+      * along with a toast message to user.
+      */
 
-        /*
-         * * * TO DO: Create gradeQuestion3 method
-         * for onClick="gradeQuestion3"
-         * This method checks of user selected quiz question 3 as true or false question and
-         * displays the result into android:id="@+id/q3_score as 100% or zero
-         * along with a toast message.
-         */
-        public void gradeQuestion3 () {
-            //* * * TO DO: Grade gradeQuestion3
-            //scoreQ3 = 100;
-            //return scoreQ3;
-        }
+    public void addListenerOnButton() {
+        radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
 
-        public void qradeQuestion4 () {
-            //grades and returns question 4 score
-            //scoreQ4 = 100;
-            //return scoreQ4;
-        }
-        /*
-         * * * TO DO: Create gradeQuiz method
-         * onClick="gradeQuiz"
-         * This method checks quiz question 4 text entry
-         * displays the result into android:id="@+id/q4_score
-         * along with a toast message.
-         */
-        public void gradeQuiz () {
-            //* Calculate final Quiz Score and post to table in app.
-            finalScore = scoreQ1;
-            //finalScore = (scoreQ1 + gradeQuestion2() + gradeQuestion3() + qradeQuestion4()) /4 ;
+        gradeQuestion2(radioQ2Group);
+    }
 
-            TextView score1TextView = (TextView) findViewById(R.id.final_score);
-            score1TextView.setText("" + finalScore);
-        }
+     public void gradeQuestion2 (View view) {
 
-        /*
-         * * * TO DO: Create emailFeedback method
-         * onClick="emailFeedback"
-         * This method creates an email intent for user to email us feedback.
-         */
-        public void emailFeedback (View view){
-            //* * * TO DO: Ask for User's Name and email address
-            //* * * TO DO: Create email only intent to send message
-            //* * * TO DO: send email to 19@1millionwomentotech.com
+      //Checks if button was checked at all:
+      boolean checked = ((RadioButton) view).isChecked();
+
+
+
+
+      int radioQ2Selection = RadioGroup.getCheckedRadioButtonID();
+      View radioQ2 = radioButton
+
+      //Checks which radio button was clicked:
+      if (oneCameraSelected) {
+        //This is the correct answer! so award 100pts
+        scoreQ2 = 100;
+        Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
+      } else {
+        //either of the other wrong answers = no points
+        scoreQ2 = 0;
+        Toast.makeText(this, "Check out our Toolkitten repo on Github to learn this and more!", Toast.LENGTH_SHORT).show();
+      }
+
+      //Displays Question 2 score in table at the bottom of the app:
+      TextView score1TextView = (TextView) findViewById(R.id.q2_score);
+      score1TextView.setText("" + scoreQ2);
+
+      }
+
+      /*
+      * * * TO DO: Create gradeQuestion3 method
+      * for onClick="gradeQuestion3"
+      * This method checks of user selected quiz question 3 as true or false question and
+      * displays the result into android:id="@+id/q3_score as 100% or zero
+      * along with a toast message.
+      */
+
+      public void gradeQuestion3 () {
+      //* * * TO DO: Grade gradeQuestion3
+      //scoreQ3 = 100;
+      //return scoreQ3;
+      }
+
+      public void qradeQuestion4 () {
+      //grades and returns question 4 score
+      //scoreQ4 = 100;
+      //return scoreQ4;
+      }
+
+      /*
+       * * * TO DO: Create gradeQuiz method
+       * onClick="gradeQuiz"
+       * This method checks quiz question 4 text entry
+       * displays the result into android:id="@+id/q4_score
+       * along with a toast message.
+      */
+
+      public void gradeQuiz () {
+      //* Calculate final Quiz Score and post to table in app.
+      finalScore = scoreQ1;
+
+      //finalScore = (scoreQ1 + gradeQuestion2() + gradeQuestion3() + qradeQuestion4()) /4 ;
+
+      TextView score1TextView = (TextView) findViewById(R.id.final_score);
+      score1TextView.setText("" + finalScore);
+      }
+
+      /*
+       * * * TO DO: Create emailFeedback method
+       * onClick="emailFeedback"
+       * This method creates an email intent for user to email us feedback.
+       */
+
+       public void emailFeedback (View view){
+        //* * * TO DO: Ask for User's Name and email address
+        //* * * TO DO: Create email only intent to send message
+        //* * * TO DO: send email to 19@1millionwomentotech.com
         }
 
     }

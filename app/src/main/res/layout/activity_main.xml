@@ -264,21 +264,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_radio_one"
-                android:textAppearance="?android:textAppearanceLarge" />
+                android:textAppearance="?android:textAppearanceLarge"
+                android:onClick="onRadioButtonClicked" />
 
             <RadioButton
                 android:id="@+id/radioq2two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_radio_two"
-                android:textAppearance="?android:textAppearanceLarge" />
+                android:textAppearance="?android:textAppearanceLarge"
+                android:onClick="onRadioButtonClicked" />
 
             <RadioButton
                 android:id="@+id/radioq2more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/q2_radio_more"
-                android:textAppearance="?android:textAppearanceLarge" />
+                android:textAppearance="?android:textAppearanceLarge"
+                android:onClick="onRadioButtonClicked"/>
         </RadioGroup>
 
         <Button
