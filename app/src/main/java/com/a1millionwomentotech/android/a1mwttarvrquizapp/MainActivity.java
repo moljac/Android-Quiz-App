@@ -2,6 +2,7 @@ package com.onemillionwomentotech.android.omwttarvrquizapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -9,6 +10,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
+
+import static android.view.Gravity.*;
 
 /**
  * This quiz app demos AR and VR creations made during weeks 10 and 11 of
@@ -132,21 +136,40 @@ public class MainActivity extends AppCompatActivity {
       */
 
     public void addListenerOnButton() {
-        radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
 
-        gradeQuestion2(radioQ2Group);
+        //radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
+
+        //gradeQuestion2(radioQ2Group);
     }
+
+    public void onRadioButtonClicked(View view) {
+
+        Log.v("On clicked working", "onRadioButtonClicked");
+
+        RadioButton rb = (RadioButton) view;
+        int id = view.getId();
+        boolean checked = rb.isChecked();
+        String name = rb.getText().toString();
+
+        Toast toast2 = Toast.makeText(this, "Clicked " + name, Toast.LENGTH_LONG);
+        toast2.setGravity(CENTER_HORIZONTAL | CENTER_VERTICAL, 0, 0);
+        toast2.show();
+
+        if ( checked && name == "One main Camera")
+        {
+            oneCameraSelected = true;
+        }
+    }
+
+    boolean oneCameraSelected = false;
 
      public void gradeQuestion2 (View view) {
 
       //Checks if button was checked at all:
       boolean checked = ((RadioButton) view).isChecked();
 
-
-
-
-      int radioQ2Selection = RadioGroup.getCheckedRadioButtonID();
-      View radioQ2 = radioButton
+      //int radioQ2Selection = RadioGroup.getCheckedRadioButtonID();
+      //View radioQ2 = radioButton
 
       //Checks which radio button was clicked:
       if (oneCameraSelected) {
