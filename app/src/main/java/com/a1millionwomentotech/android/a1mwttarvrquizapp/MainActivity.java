@@ -1,14 +1,15 @@
-package com.onemillionwomentotech.android.omwttarvrquizapp;
+package com.a1millionwomentotech.android.a1mwttarvrquizapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.onemillionwomentotech.android.omwttarvrquizapp.R;
 
 /**
  * This quiz app demos AR and VR creations made during weeks 10 and 11 of
@@ -22,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
     int scoreQ3 = 0;
     int scoreQ4 = 0;
     int finalScore = 0;
-
-    private RadioGroup radioQ2Group;
-    private RadioButton bOneCamera, bTwoCameras, bMoreCameras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,39 +129,50 @@ public class MainActivity extends AppCompatActivity {
       * along with a toast message to user.
       */
 
-    public void addListenerOnButton() {
-        radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
-
-        gradeQuestion2(radioQ2Group);
-    }
+      public void addListenerOnButton() {
+          RadioGroup radioQ2Group;
+          radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
+          gradeQuestion2(radioQ2Group);
+      }
 
      public void gradeQuestion2 (View view) {
 
-      //Checks if button was checked at all:
-      boolean checked = ((RadioButton) view).isChecked();
+         //Checks which radio button was clicked:
+         RadioButton answerOneCamera = findViewById(R.id.radioq2one);
+         boolean selectedOneCamera = answerOneCamera.isChecked();
+
+         RadioButton answerTwoCameras = findViewById(R.id.radioq2two);
+         boolean selectedTwoCameras = answerTwoCameras.isChecked();
+
+         RadioButton answer3orMoreCameras = findViewById(R.id.radioq2more);
+         boolean selected3orMoreCameras = answer3orMoreCameras.isChecked();
+
+         scoreQ2 = scoreQuestion2(selectedOneCamera, selectedTwoCameras, selected3orMoreCameras);
+
+         //Displays Question 2 score in table at the bottom of the app:
+         TextView score2TextView = (TextView) findViewById(R.id.q2_score);
+         score2TextView.setText("" + scoreQ2);
+     }
+
+         public int scoreQuestion2(boolean OneCamera, boolean TwoCameras, boolean ThreeOrMoreCameras) {
+            int gradeQ2 = 0;
+             //This is the correct answer! so award 100pts.
+            if (OneCamera){
+                gradeQ2 = 100;
+                Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
+            } else if (TwoCameras){
+                //answer 2 is incorrect = no points
+                gradeQ2 = 0;
+                Toast.makeText(this, "Close but not quite. Scroll on down to see more pictures!", Toast.LENGTH_SHORT).show();
+            } else if (ThreeOrMoreCameras) {
+                //answer 3 is also incorrect, give message to see repo.
+                gradeQ2 = 0;
+                Toast.makeText(this, "Check out our Toolkitten repo on Github to learn the answers! But first, scroll down to see more pictures!", Toast.LENGTH_SHORT).show();
+            }
+            return gradeQ2;
+         }
 
 
-
-
-      int radioQ2Selection = RadioGroup.getCheckedRadioButtonID();
-      View radioQ2 = radioButton
-
-      //Checks which radio button was clicked:
-      if (oneCameraSelected) {
-        //This is the correct answer! so award 100pts
-        scoreQ2 = 100;
-        Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
-      } else {
-        //either of the other wrong answers = no points
-        scoreQ2 = 0;
-        Toast.makeText(this, "Check out our Toolkitten repo on Github to learn this and more!", Toast.LENGTH_SHORT).show();
-      }
-
-      //Displays Question 2 score in table at the bottom of the app:
-      TextView score1TextView = (TextView) findViewById(R.id.q2_score);
-      score1TextView.setText("" + scoreQ2);
-
-      }
 
       /*
       * * * TO DO: Create gradeQuestion3 method
@@ -195,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
       public void gradeQuiz () {
       //* Calculate final Quiz Score and post to table in app.
-      finalScore = scoreQ1;
+     // finalScore = scoreQ1;
 
       //finalScore = (scoreQ1 + gradeQuestion2() + gradeQuestion3() + qradeQuestion4()) /4 ;
 
