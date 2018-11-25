@@ -1,4 +1,4 @@
-package com.a1millionwomentotech.android.a1mwttarvrquizapp;
+package com.onemillionwomentotech.android.a1mwttarvrquizapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
