@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void gradeQuestion1(View view) {
         /*
-         * CORRECT ANSWER: All 6 checkboxes should have been checked to get 100%.
-         *Since 100 is not evenly divided by 6, the following exact values are used to score
-         * and produce the corresponding toast messages:
+         * CORRECT ANSWER: All 6 checkboxes should be checked to get 100%.
+         *100 is not evenly divided by 6, so the following exact values are placed
+         * in the score table at the bottome and a corresponding toast message:
          * if any 5 are selected: scoreQ1 = 83 & toast "You know a lot... for 5 or 6 checked.
          * if any 4 are selected scoreQ1 66 & toast "You are on the right track,..."
          * if any 3 selected scoreQ1 = 50 & toast "You are on the right track,..."
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
       * displays the result into android:id="@+id/q2_score
       * along with a toast message to user.
       */
-
+/*
       public void addListenerOnButton() {
           RadioGroup radioQ2Group;
           radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
             return gradeQ2;
          }
 
-
+*/
 
       /*
       * * * TO DO: Create gradeQuestion3 method
@@ -182,12 +182,52 @@ public class MainActivity extends AppCompatActivity {
       * along with a toast message.
       */
 
-      public void gradeQuestion3 () {
+
+
+
+//Q3
+    public void addListenerOnButton() {
+        RadioGroup radioQ3Group;
+        radioQ3Group = (RadioGroup) findViewById(R.id.radio_q3_cloud_targets);
+        gradeQuestion3(radioQ3Group);
+    }
+
+    public void gradeQuestion3 (View view) {
+
+        //Checks if True radio button was clicked:
+        RadioButton q3True = findViewById(R.id.radioq3true);
+        boolean selectedq3AsTrue = q3True.isChecked();
+
+        //Checks if False radio button was clicked:
+        RadioButton q3False = findViewById(R.id.radioq3false);
+        boolean selectedq3AsFalse = q3False.isChecked();
+
+        scoreQ3 = scoreQuestion3(selectedq3AsTrue, selectedq3AsFalse);
+
+        //Displays Question 2 score in table at the bottom of the app:
+        TextView score3TextView = (TextView) findViewById(R.id.q3_score);
+        score3TextView.setText("" + scoreQ3);
+    }
+
+    public int scoreQuestion3(boolean selectedq3AsTrue, boolean selectedq3AsFalse) {
+        int gradeQ3 = 0;
+        //This is the correct answer! so award 100pts.
+        if (selectedq3AsTrue){
+            gradeQ3 = 100;
+            Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
+        } else {
+            //answer 2 is incorrect = no points
+            gradeQ3 = 0;
+            Toast.makeText(this, "Close but not quite. Scroll on down to see more pictures!", Toast.LENGTH_SHORT).show();
+        }
+        return gradeQ3;
+    }
+ /*     public void gradeQuestion3 () {
       //* * * TO DO: Grade gradeQuestion3
       //scoreQ3 = 100;
       //return scoreQ3;
       }
-
+*/
       public void qradeQuestion4 () {
       //grades and returns question 4 score
       //scoreQ4 = 100;
