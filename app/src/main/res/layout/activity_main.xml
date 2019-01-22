@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.onemillionwomentotech.android.omwttarvrquizapp.MainActivity">
+    tools:context="com.onemillionwomentotech.android.a1mwttarvrquizapp.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -250,36 +250,26 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <RadioGroup
-            android:id="@+id/radio_q2_cameras"
+        <CheckBox
+            android:id="@+id/q2_ckbox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp">
+            android:text="@string/q2_ckbox1"
+            android:textAppearance="?android:textAppearanceMedium" />
 
-            <RadioButton
-                android:id="@+id/radioq2one"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/q2_radio_one"
-                android:textAppearance="?android:textAppearanceLarge" />
+        <CheckBox
+            android:id="@+id/q2_ckbox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/q2_ckbox2"
+            android:textAppearance="?android:textAppearanceMedium" />
 
-            <RadioButton
-                android:id="@+id/radioq2two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/q2_radio_two"
-                android:textAppearance="?android:textAppearanceLarge" />
-
-            <RadioButton
-                android:id="@+id/radioq2more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/q2_radio_more"
-                android:textAppearance="?android:textAppearanceLarge" />
-        </RadioGroup>
+        <CheckBox
+            android:id="@+id/q2_ckbox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/q2_ckbox3"
+            android:textAppearance="?android:textAppearanceMedium" />
 
         <Button
             android:id="@+id/button_grade_question2"
@@ -430,8 +420,20 @@
             android:layout_marginTop="16dp"
             android:background="#F2F2F2"
             android:hint="@string/hint"
-            android:inputType="textCapWords"
-            android:textStyle="bold|italic" />
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/button_grade_question4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="qradeQuestion4"
+            android:padding="10dp"
+            android:text="@string/grade_question_4"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:textSize="22sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -491,7 +493,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!-- Button to submit Question 4 answer AND send toast with final score message -->
+<!-- Button to Grade entire quiz and send toast with final score message -->
         <Button
             android:id="@+id/button_grade_quiz"
             android:layout_width="wrap_content"
@@ -500,7 +502,7 @@
             android:layout_marginBottom="16dp"
             android:onClick="gradeQuiz"
             android:padding="10dp"
-            android:text="@string/grade_question_4"
+            android:text="@string/grade_quiz"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:textSize="22sp"/>

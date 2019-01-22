@@ -22,21 +22,22 @@
     <string name="ar">Scroll down to submit and see objects created by  augmented reality students </string>
     <!--Question2 and Radio Answer strings (Correct Answer is: One main Camera)-->
     <string name="question2">Q2. According to best practice, how many cameras should be used for AR/VR experiences?</string>
-    <string name="q2_radio_one">One main Camera</string>
-    <string name="q2_radio_two">Two main cameras</string>
-    <string name="q2_radio_more">More than 2 cameras</string>
+    <string name="q2_ckbox1">One main Camera</string>
+    <string name="q2_ckbox2">Two main cameras</string>
+    <string name="q2_ckbox3">More than 2 cameras</string>
     <!--Question3 and Radio Answer strings (Correct Answer is: true)-->
     <string name="question3">Q3. Cloud targets are targets that exist on your account database rather than on the device?</string>
     <string name="q3_true">True</string>
     <string name="q3_false">False</string>
     <!--Question4 User Input: Correct Answer is: OnTriggerEnter-->
     <string name="question4">Q4. ______________ is called when the other collider enters the trigger.</string>
-    <string name="hint">Hint: three words in one</string>
+    <string name="hint">Hint: Tap here and type "three words in one":</string>
     <!--Text on Buttons-->
     <string name="grade_question_1">SUBMIT Q1</string>
     <string name="grade_question_2">SUBMIT Q2</string>
     <string name="grade_question_3">SUBMIT Q3</string>
     <string name="grade_question_4">SUBMIT Q4</string>
+    <string name="grade_quiz">Total Quiz Score</string>
     <!--Results -->
     <string name="results">Here are your quiz results:</string>
     <string name="q1_results">Question 1:</string>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -42,48 +43,31 @@ public class MainActivity extends AppCompatActivity {
     public void gradeQuestion1(View view) {
         /*
          * CORRECT ANSWER: All 6 checkboxes should be checked to get 100%.
-         *100 is not evenly divided by 6, so the following exact values are placed
-         * in the score table at the bottome and a corresponding toast message:
-         * if any 5 are selected: scoreQ1 = 83 & toast "You know a lot... for 5 or 6 checked.
-         * if any 4 are selected scoreQ1 66 & toast "You are on the right track,..."
-         * if any 3 selected scoreQ1 = 50 & toast "You are on the right track,..."
-         * if any 2 selected scoreQ1 = 32 and toast "That's is correct but AR has many more..."
-         * if only 1 is selected scoreQ1 = 17 and toast "That's is correct but AR has more..."
-         * if none are selected scoreQ1 = 0 and toast "Hint, AR as applications in many..."
+         * if less than all six are selected scoreQ1 = 0
+         * and toast "You are on the right track, but there's even more. Try again!"
          */
 
-         CheckBox q1Cb1Architecture = (CheckBox) findViewById(R.id.q1_ckbox1);
-         boolean selectedArchitecture = q1Cb1Architecture.isChecked();
+        CheckBox q1Cb1Architecture = (CheckBox) findViewById(R.id.q1_ckbox1);
+        boolean selectedArchitecture = q1Cb1Architecture.isChecked();
 
-         CheckBox q1Cb2Hospitality = (CheckBox) findViewById(R.id.q1_ckbox2);
-         boolean selectedHospitality = q1Cb2Hospitality.isChecked();
+        CheckBox q1Cb2Hospitality = (CheckBox) findViewById(R.id.q1_ckbox2);
+        boolean selectedHospitality = q1Cb2Hospitality.isChecked();
 
-         CheckBox q1Cb3Sports = (CheckBox) findViewById(R.id.q1_ckbox3);
-         boolean selectedSports = q1Cb3Sports.isChecked();
+        CheckBox q1Cb3Sports = (CheckBox) findViewById(R.id.q1_ckbox3);
+        boolean selectedSports = q1Cb3Sports.isChecked();
 
-         CheckBox q1Cb4Arts = (CheckBox) findViewById(R.id.q1_ckbox4);
-         boolean selectedArts = q1Cb4Arts.isChecked();
+        CheckBox q1Cb4Arts = (CheckBox) findViewById(R.id.q1_ckbox4);
+        boolean selectedArts = q1Cb4Arts.isChecked();
 
-         CheckBox q1Cb5Teaching = (CheckBox) findViewById(R.id.q1_ckbox5);
-         boolean selectedTeaching = q1Cb5Teaching.isChecked();
+        CheckBox q1Cb5Teaching = (CheckBox) findViewById(R.id.q1_ckbox5);
+        boolean selectedTeaching = q1Cb5Teaching.isChecked();
 
-         CheckBox q1Cb6Medicine = (CheckBox) findViewById(R.id.q1_ckbox6);
-         boolean selectedMedicine = q1Cb6Medicine.isChecked();
+        CheckBox q1Cb6Medicine = (CheckBox) findViewById(R.id.q1_ckbox6);
+        boolean selectedMedicine = q1Cb6Medicine.isChecked();
 
-         scoreQ1 = scoreQuestion1(selectedArchitecture, selectedHospitality,
-         selectedSports, selectedArts,
-         selectedTeaching, selectedMedicine);
-
-         // Generate a toast with the corresponding message per the score:
-         if (scoreQ1 >= 82) {
-         Toast.makeText(this, "You really know a lot about AR! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
-         } else if (scoreQ1 >= 49) {
-         Toast.makeText(this, "You are on the right track, but there's even more. Try again!", Toast.LENGTH_SHORT).show();
-         } else if (scoreQ1 >= 16) {
-         Toast.makeText(this, "That's is correct but AR has more applications. Try again!", Toast.LENGTH_SHORT).show();
-         } else {
-         Toast.makeText(this, "Hint, AR as applications in many areas. Try again!", Toast.LENGTH_SHORT).show();
-         }
+        scoreQ1 = scoreQuestion1(selectedArchitecture, selectedHospitality,
+                selectedSports, selectedArts,
+                selectedTeaching, selectedMedicine);
 
         //Displays Question 1 score in table at the bottom of the app:
         TextView score1TextView = (TextView) findViewById(R.id.q1_score);
@@ -91,108 +75,80 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *This method calculates score for question 1 based on number of checked boxes:
+     * This method calculates score for question 1 based on number of checked boxes:
      * All 6 boxes are needed to get a "correct" score of 100%.
+     *
      * @return gradeQ1
      */
+    public int scoreQuestion1(boolean Architecture, boolean Hospitality,
+                              boolean Sports, boolean Arts, boolean Teaching, boolean Medicine) {
+        if (Architecture && Hospitality && Sports && Arts && Teaching && Medicine) {
+            scoreQ1 = 100;
+            Toast.makeText(this, "You really know a lot about AR! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
+        } else {
+            scoreQ1 = 0;
+            Toast.makeText(this, "You are on the right track, but there's more. Try again!", Toast.LENGTH_SHORT).show();
+        }
+        return scoreQ1;
+    }
 
-     public int scoreQuestion1(boolean Architecture, boolean Hospitality,
-     boolean Sports, boolean Arts, boolean Teaching, boolean Medicine) {
+    /*
+     * This method checks quiz question 2 responses and
+     * displays the result into android:id="@+id/q2_score
+     * along with a toast message to user.
+     */
+    public void gradeQuestion2(View view) {
+        //Checks which radio button was clicked:
+        CheckBox answerOneCamera = (CheckBox) findViewById(R.id.q2_ckbox1);
+        boolean selectedOneCamera = answerOneCamera.isChecked();
 
-         int gradeQ1 = 0;
+        CheckBox answerTwoCameras = (CheckBox) findViewById(R.id.q2_ckbox2);
+        boolean selectedTwoCameras = answerTwoCameras.isChecked();
 
-         if (Architecture) {
-            gradeQ1 = 17;
-         }
-         if (Hospitality) {
-            gradeQ1 = gradeQ1 + 15;
-         }
-         if (Sports) {
-            gradeQ1 = gradeQ1 + 18;
-         }
-         if (Arts) {
-            gradeQ1 = gradeQ1 + 17;
-         }
-         if (Teaching) {
-            gradeQ1 = gradeQ1 + 15;
-         }
-         if (Medicine) {
-            gradeQ1 = gradeQ1 + 18;
-         }
-         return gradeQ1;
-     }
+        CheckBox answer3orMoreCameras = (CheckBox) findViewById(R.id.q2_ckbox3);
+        boolean selected3orMoreCameras = answer3orMoreCameras.isChecked();
 
+        scoreQ2 = scoreQuestion2(selectedOneCamera, selectedTwoCameras,
+                selected3orMoreCameras);
 
-     /*
-      * This method checks quiz question 2 radio buttons and
-      * displays the result into android:id="@+id/q2_score
-      * along with a toast message to user.
-      */
-/*
-      public void addListenerOnButton() {
-          RadioGroup radioQ2Group;
-          radioQ2Group = (RadioGroup) findViewById(R.id.radio_q2_cameras);
-          gradeQuestion2(radioQ2Group);
-      }
+        //Displays Question 2 score in table at the bottom of the app:
+        TextView score2TextView = (TextView) findViewById(R.id.q2_score);
+        score2TextView.setText("" + scoreQ2);
+    }
 
-     public void gradeQuestion2 (View view) {
-
-         //Checks which radio button was clicked:
-         RadioButton answerOneCamera = findViewById(R.id.radioq2one);
-         boolean selectedOneCamera = answerOneCamera.isChecked();
-
-         RadioButton answerTwoCameras = findViewById(R.id.radioq2two);
-         boolean selectedTwoCameras = answerTwoCameras.isChecked();
-
-         RadioButton answer3orMoreCameras = findViewById(R.id.radioq2more);
-         boolean selected3orMoreCameras = answer3orMoreCameras.isChecked();
-
-         scoreQ2 = scoreQuestion2(selectedOneCamera, selectedTwoCameras, selected3orMoreCameras);
-
-         //Displays Question 2 score in table at the bottom of the app:
-         TextView score2TextView = (TextView) findViewById(R.id.q2_score);
-         score2TextView.setText("" + scoreQ2);
-     }
-
-         public int scoreQuestion2(boolean OneCamera, boolean TwoCameras, boolean ThreeOrMoreCameras) {
-            int gradeQ2 = 0;
-             //This is the correct answer! so award 100pts.
-            if (OneCamera){
-                gradeQ2 = 100;
-                Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
-            } else if (TwoCameras){
-                //answer 2 is incorrect = no points
-                gradeQ2 = 0;
-                Toast.makeText(this, "Close but not quite. Scroll on down to see more pictures!", Toast.LENGTH_SHORT).show();
-            } else if (ThreeOrMoreCameras) {
-                //answer 3 is also incorrect, give message to see repo.
-                gradeQ2 = 0;
-                Toast.makeText(this, "Check out our Toolkitten repo on Github to learn the answers! But first, scroll down to see more pictures!", Toast.LENGTH_SHORT).show();
-            }
-            return gradeQ2;
-         }
-
-*/
-
-      /*
-      * * * TO DO: Create gradeQuestion3 method
-      * for onClick="gradeQuestion3"
-      * This method checks of user selected quiz question 3 as true or false question and
-      * displays the result into android:id="@+id/q3_score as 100% or zero
-      * along with a toast message.
-      */
+    public int scoreQuestion2(boolean OneCamera, boolean TwoCameras,
+                              boolean ThreeOrMoreCameras) {
+        //Both answers are incorrect:
+        if (TwoCameras && ThreeOrMoreCameras) {
+            scoreQ2 = 0;
+            Toast.makeText(this, "Check out our Toolkitten repo on Github to learn about AR, VR & more! But first, scroll down to see more pictures!", Toast.LENGTH_SHORT).show();
+        } else if (TwoCameras || ThreeOrMoreCameras) {
+            //answer 2 is incorrect = no points
+            scoreQ2 = 0;
+            Toast.makeText(this, "Close but not quite. Scroll on down to see more pictures!", Toast.LENGTH_SHORT).show();
+        } else if (OneCamera) {
+            //OneCamera is correct, so award 100 points and display congrats toast.
+            scoreQ2 = 100;
+            Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
+        }
+        return scoreQ2;
+    }
 
 
+    /*
+     * This method is called when Q3 Submit button is clicked onClick="gradeQuestion3"
+     * This method checks of user selected quiz question 3 as true or false question and
+     * displays the result into android:id="@+id/q3_score as 100% or zero
+     * along with a toast message.
+     */
 
-
-//Q3
     public void addListenerOnButton() {
         RadioGroup radioQ3Group;
         radioQ3Group = (RadioGroup) findViewById(R.id.radio_q3_cloud_targets);
         gradeQuestion3(radioQ3Group);
     }
 
-    public void gradeQuestion3 (View view) {
+    public void gradeQuestion3(View view) {
 
         //Checks if True radio button was clicked:
         RadioButton q3True = findViewById(R.id.radioq3true);
@@ -210,58 +166,87 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int scoreQuestion3(boolean selectedq3AsTrue, boolean selectedq3AsFalse) {
-        int gradeQ3 = 0;
         //This is the correct answer! so award 100pts.
-        if (selectedq3AsTrue){
-            gradeQ3 = 100;
+        if (selectedq3AsTrue) {
+            scoreQ3 = 100;
             Toast.makeText(this, "You rock! Scroll down and check out the rest of the quiz!", Toast.LENGTH_SHORT).show();
+        } else if (selectedq3AsFalse){
+            scoreQ3 = 0;
+            Toast.makeText(this, "Sorry that is not the correct answer. See our Toolkitten repo to learn more.", Toast.LENGTH_SHORT).show();
         } else {
             //answer 2 is incorrect = no points
-            gradeQ3 = 0;
-            Toast.makeText(this, "Close but not quite. Scroll on down to see more pictures!", Toast.LENGTH_SHORT).show();
+            scoreQ3 = 0;
+            Toast.makeText(this, "Please select an answer and press the Button to see your score.", Toast.LENGTH_SHORT).show();
         }
-        return gradeQ3;
+        return scoreQ3;
     }
- /*     public void gradeQuestion3 () {
-      //* * * TO DO: Grade gradeQuestion3
-      //scoreQ3 = 100;
-      //return scoreQ3;
-      }
-*/
-      public void qradeQuestion4 () {
-      //grades and returns question 4 score
-      //scoreQ4 = 100;
-      //return scoreQ4;
-      }
 
-      /*
-       * * * TO DO: Create gradeQuiz method
-       * onClick="gradeQuiz"
-       * This method checks quiz question 4 text entry
-       * displays the result into android:id="@+id/q4_score
-       * along with a toast message.
-      */
+    public void qradeQuestion4(View view) {
+        //Compares contents of q4_text_answer against correct responses andreturns Question 4 score.
 
-      public void gradeQuiz () {
-      //* Calculate final Quiz Score and post to table in app.
-     // finalScore = scoreQ1;
+        EditText responseQ4 = (EditText) findViewById(R.id.q4_text_answer);
+        String getQ4response = responseQ4.getText().toString();
 
-      //finalScore = (scoreQ1 + gradeQuestion2() + gradeQuestion3() + qradeQuestion4()) /4 ;
+        scoreQ4 = scoreQuestion4(getQ4response);
 
-      TextView score1TextView = (TextView) findViewById(R.id.final_score);
-      score1TextView.setText("" + finalScore);
-      }
+        //Displays Question 4 score in table at the bottom of the app:
+        TextView score4TextView = (TextView) findViewById(R.id.q4_score);
+        score4TextView.setText("" + scoreQ4);
+    }
 
-      /*
-       * * * TO DO: Create emailFeedback method
-       * onClick="emailFeedback"
-       * This method creates an email intent for user to email us feedback.
-       */
+    public int scoreQuestion4(String q4response) {
+        /*
+         * This method compares quiz question 4 text entry in q4_text_answer to correct answers and
+         * displays a question score result into android:id="@+id/q4_score
+         * along with a question toast message.
+         *
+         */
+        switch (q4response) {
+            case "OnTriggerEnter":
+                scoreQ4 = 100;
+                Toast.makeText(this, "You totally rock! Scroll down and submit your feedack!", Toast.LENGTH_SHORT).show();
+                break;
+            case "ontriggerenter":
+            case "triggerenter":
+            case "ontrigger":
+            case "Ontriggerenter":
+            case "onTriggerenter":
+            case "ontriggerEnter":
+            case "OnTriggerenter":
+            case "onTriggerEnter":
+            case "on trigger enter":
+            case "On Trigger Enter":
+                scoreQ4 = 50;
+                Toast.makeText(this, "Oh so close! Check your capitalization and spacing try again.", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                scoreQ4 = 0;
+                Toast.makeText(this, "See our Toolkitten repo to learn this and more! Try again!", Toast.LENGTH_SHORT).show();
+        }
+        return scoreQ4;
+    }
 
-       public void emailFeedback (View view){
+
+    public void gradeQuiz() {
+        //* Calculate final Quiz Score and print quiz total in a toast.
+        finalScore = (scoreQ1 + scoreQ2 + scoreQ3 + scoreQ4) / 4;
+
+        TextView score1TextView = (TextView) findViewById(R.id.final_score);
+        score1TextView.setText("" + finalScore);
+        Toast.makeText(this, "Your final score is " + finalScore + "!", Toast.LENGTH_SHORT).show();
+
+    }
+
+    /*
+     * * * TO DO: Create emailFeedback method
+     * onClick="emailFeedback"
+     * This method creates an email intent for user to email us feedback.
+     */
+
+    public void emailFeedback(View view) {
         //* * * TO DO: Ask for User's Name and email address
         //* * * TO DO: Create email only intent to send message
         //* * * TO DO: send email to 19@1millionwomentotech.com
-        }
-
     }
+
+}
