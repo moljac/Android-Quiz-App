@@ -12,7 +12,7 @@
         android:background="@drawable/rounded_pink_background"
         android:gravity="center"
         android:orientation="vertical">
-<!--Begin Header-->
+        <!--Begin Header-->
         <ImageView
             android:id="@+id/logo_image_view"
             android:layout_width="match_parent"
@@ -70,7 +70,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="#690039" />
-<!--Begin SOC explanation-->
+        <!--Begin SOC explanation-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Begin Question 1-->
+        <!--Begin Question 1-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -192,20 +192,22 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button_grade_question1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:layout_span="2"
+                    android:gravity="center"
                     android:onClick="gradeQuestion1"
                     android:padding="10dp"
                     android:text="@string/grade_question_1"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textSize="22sp"/>
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
             </TableRow>
         </TableLayout>
 
@@ -216,7 +218,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Begin VR2 Image-->
+        <!--Begin VR2 Image-->
         <TextView
             android:id="@+id/vr1_view"
             android:layout_width="match_parent"
@@ -227,9 +229,9 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/vr1_9_18"
             android:contentDescription="@string/vr"
-            android:text="@string/vr"
             android:scaleType="fitStart"
-            android:textSize="22sp"/>
+            android:text="@string/vr"
+            android:textSize="22sp" />
 
         <View
             android:layout_width="match_parent"
@@ -238,7 +240,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Begin Question 2-->
+        <!--Begin Question 2-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -275,17 +277,17 @@
             android:id="@+id/button_grade_question2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:onClick="gradeQuestion2"
             android:padding="10dp"
             android:text="@string/grade_question_2"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textSize="22sp"/>
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-<!--End Q2 -->
+        <!--End Q2 -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -293,7 +295,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Begin VR Image 2 -->
+        <!--Begin VR Image 2 -->
         <TextView
             android:id="@+id/vr2_view"
             android:layout_width="match_parent"
@@ -304,9 +306,9 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/vr2"
             android:contentDescription="@string/vr"
-            android:text="@string/vr"
             android:scaleType="fitStart"
-            android:textSize="22sp"/>
+            android:text="@string/vr"
+            android:textSize="22sp" />
 
         <View
             android:layout_width="match_parent"
@@ -315,7 +317,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Begin Question 3 -->
+        <!--Begin Question 3 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -359,16 +361,16 @@
             android:id="@+id/button_grade_question3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:onClick="gradeQuestion3"
             android:padding="10dp"
             android:text="@string/grade_question_3"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textSize="22sp"/>
-<!--End Question 3 -->
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <!--End Question 3 -->
 
         <View
             android:layout_width="match_parent"
@@ -377,7 +379,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Begin VR Image 3 -->
+        <!--Begin VR Image 3 -->
         <TextView
             android:id="@+id/vr3_view"
             android:layout_width="match_parent"
@@ -388,8 +390,8 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/vr3"
             android:contentDescription="@string/vr"
-            android:text="@string/vr"
-            android:scaleType="fitStart" />
+            android:scaleType="fitStart"
+            android:text="@string/vr" />
 
         <View
             android:layout_width="match_parent"
@@ -398,7 +400,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!-- Begin Question 4 -->
+        <!-- Begin Question 4 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -426,14 +428,14 @@
             android:id="@+id/button_grade_question4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:onClick="qradeQuestion4"
             android:padding="10dp"
             android:text="@string/grade_question_4"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textSize="22sp"/>
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
@@ -442,7 +444,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!-- AR Images insterted between Question and Submit buttton-->
+        <!-- AR Images insterted between Question and Submit buttton-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -462,8 +464,9 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/ar1"
             android:contentDescription="@string/ar"
+            android:scaleType="fitStart"
             android:text="@string/ar"
-            android:scaleType="fitStart" />
+            android:textSize="22sp" />
 
         <View
             android:layout_width="match_parent"
@@ -482,9 +485,9 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/ar2"
             android:contentDescription="@string/ar"
-            android:text="@string/ar"
             android:scaleType="fitStart"
-            android:textSize="22sp"/>
+            android:text="@string/ar"
+            android:textSize="22sp" />
 
         <View
             android:layout_width="match_parent"
@@ -493,19 +496,19 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!-- Button to Grade entire quiz and send toast with final score message -->
+        <!-- Button to Grade entire quiz and send toast with final score message -->
         <Button
             android:id="@+id/button_grade_quiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:onClick="gradeQuiz"
             android:padding="10dp"
             android:text="@string/grade_quiz"
             android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:textSize="22sp"/>
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
 
         <View
@@ -515,7 +518,7 @@
             android:layout_marginRight="16dp"
             android:background="#690039" />
 
-<!--Display quiz results -->
+        <!--Display quiz results -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -533,7 +536,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp">
-<!--Question 1 Results:-->
+            <!--Question 1 Results:-->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -553,11 +556,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="scoreQ1"
+                    android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black" />
             </TableRow>
-<!--Question 2 Results:-->
+            <!--Question 2 Results:-->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -577,10 +580,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="scoreQ2"
+                    android:text="0"
                     android:textAppearance="?android:textAppearanceMedium" />
             </TableRow>
-<!--Question 3 Results:-->
+            <!--Question 3 Results:-->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -601,10 +604,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="scoreQ3"
+                    android:text="0"
                     android:textAppearance="?android:textAppearanceMedium" />
             </TableRow>
-<!--Question 4 results -->
+            <!--Question 4 results -->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -624,11 +627,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="scoreQ4"
+                    android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black" />
             </TableRow>
-<!--Quiz Total results -->
+            <!--Quiz Total results -->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -648,12 +651,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="scoreFinal"
+                    android:text="0"
                     android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black" />
             </TableRow>
 
- <!--Intent button with CTA to send us feedback -->
+            <!--Intent button with CTA to send us feedback -->
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -670,8 +673,8 @@
                     android:padding="10dp"
                     android:text="@string/feedback"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textSize="22sp"/>
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
             </TableRow>
         </TableLayout>
 

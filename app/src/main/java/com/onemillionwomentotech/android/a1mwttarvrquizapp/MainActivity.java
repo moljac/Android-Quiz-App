@@ -1,5 +1,7 @@
 package com.onemillionwomentotech.android.a1mwttarvrquizapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -245,8 +247,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void emailFeedback(View view) {
         //* * * TO DO: Ask for User's Name and email address
-        //* * * TO DO: Create email only intent to send message
-        //* * * TO DO: send email to 19@1millionwomentotech.com
+        //Creates email only intent requesting feedback IMWTT at 19@1millionwomentotech.com
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:19@1millionwomentotech.com"));
+
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Congratulations! You quiz score was  " + finalScore);
+        intent.putExtra(Intent.EXTRA_TEXT, "Please send us feedback about our app and programs!");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
 }
