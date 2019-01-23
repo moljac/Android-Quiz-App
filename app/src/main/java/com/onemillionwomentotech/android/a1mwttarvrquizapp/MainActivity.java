@@ -19,11 +19,11 @@ import com.onemillionwomentotech.android.omwttarvrquizapp.R;
  */
 
 public class MainActivity extends AppCompatActivity {
-    int scoreQ1 = 0;
-    int scoreQ2 = 0;
-    int scoreQ3 = 0;
-    int scoreQ4 = 0;
-    int finalScore = 0;
+    private static int scoreQ1 = 0;
+    private static int scoreQ2 = 0;
+    private static int scoreQ3 = 0;
+    private static int scoreQ4 = 0;
+    private static int finalScore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void gradeQuiz() {
+    public void gradeQuiz(View view) {
         //* Calculate final Quiz Score and print quiz total in a toast.
         finalScore = (scoreQ1 + scoreQ2 + scoreQ3 + scoreQ4) / 4;
 
