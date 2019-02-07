@@ -1,1 +1,1 @@
-# soc-hackathon-allsummer
+# Quiz Application for 1MWTT
